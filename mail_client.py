@@ -33,24 +33,52 @@ def send_mail(recipient: str, sender: str, subject: str, body: str) -> bool:
 
 def get_inbox(recipient: str) -> None:
     """TODO: fill out this docstring (using the send_mail docstring as a guide)
+    Retrieve the inbox of the given recipient.
+
+    Args:
+    recipient (str): The email address of the recipient.
+
+    Returns:
+    None
     """
     response = requests.get(f'{SERVER}/mail/inbox/{recipient}')
     pprint.pprint(response.json())
 
 def get_sent(sender: str) -> None:
     """TODO: fill out this docstring (using the send_mail docstring as a guide)
+    Retrieve the sent items of the given sender.
+
+    Args:
+    sender (str): The email address of the sender.
+
+    Returns:
+    None
     """
     response = requests.get(f'{SERVER}/mail/sent/{sender}')
     pprint.pprint(response.json())
 
 def get_mail(mail_id: str) -> None:
     """TODO: fill out this docstring (using the send_mail docstring as a guide)
+    Retrieve a specific email by its id.
+
+    Args:
+    mail_id (str): The id of the email to retrieve.
+
+    Returns:
+    None
     """
     response = requests.get(f'{SERVER}/mail/{mail_id}')
     pprint.pprint(response.json())
 
 def delete_mail(mail_id: str) -> None:
     """TODO: fill out this docstring (using the send_mail docstring as a guide)
+    Delete a specific email by its id.
+
+    Args:
+    mail_id (str): The id of the email to delete.
+
+    Returns:
+    None
     """
     response = requests.delete(f'{SERVER}/mail/{mail_id}')
     pprint.pprint(response.json())
